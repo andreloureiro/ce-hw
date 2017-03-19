@@ -63,6 +63,11 @@ See `gulpfile.js` or `package.json` `"scripts"` entry.
 
 The `main.js` uses `custom-elements.min.js` polyfill (see `/js/poly/`) for polyfilling support for Custom Elements if not natively available (ie. if `window.customElements` is available).
 
+Get the latest [@webcomponents/custom-elements](https://github.com/webcomponents/custom-elements) f.ex via one of:
+
+- `npm i -S webcomponents/custom-elements` (latest from github)
+- `npm i -S @webcomponents/custom-elements` (latest published on npm)
+
 ```js
 const supportsCustomElementsV1 = 'customElements' in window;
 
