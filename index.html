@@ -8,7 +8,7 @@
   <body>
 
     <div id="instances">
-
+    <!-- instance 1: SSR -->
       <hello-world id="hw1" name="Upgraded world!">
         <p>Hello, <span class="name">World!</span></p>
         <form class="frm" action="" method="post" accept-charset="UTF-8">
@@ -19,7 +19,9 @@
           <li>SSR init</li>
         </ul>
       </hello-world>
-
+      <!-- instance 2: SSR
+        change the name attribute, to see if it reflects in the DOM and on screen 
+      -->
       <hello-world id="hw2" name="Upgraded world!">
         <p>Hello, <span class="name">World!</span></p>
         <form class="frm" action="" method="post" accept-charset="UTF-8">
@@ -29,6 +31,9 @@
         <ul class="log">
           <li>SSR init</li>
         </ul>
+        <!-- instance 3: SSR
+          NESTED inside instance 2
+        -->
         <hello-world id="hw4" name="Nested upgraded world!">
           <p>Hello, <span class="name">World!</span></p>
           <form class="frm" action="" method="post" accept-charset="UTF-8">

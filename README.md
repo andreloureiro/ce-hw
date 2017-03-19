@@ -17,21 +17,20 @@ The custom element also has a log panel. We’re outputting diagnostic info on w
 ### Instances
 
 The demo should contain 5 elements on screen:
-- `Instance 1`: The first instance of our custom element is entirely server-side rendered. It will initially say “Hello, world” yet if it is successfully upgraded, it will say “Hello, Upgraded world!”. Once upgraded, we’re not interacting with the API at all.
-- `Instance 2`: The second instance is also server-side rendered, yet this time after upgrading it, we’re going to get a handle to it in JS and then change the name attribute, to see if it reflects in the DOM and on screen.
-- `Instance 3`: Also server-side rendered, yet this one is nested. So it’s a hello-world inside a hello-world, to test what that means for the scope.
-- `Instance 4`: This instance of the custom element is dynamically inserted into the DOM. Using just a string literal for the markup, but you could also have used Templates, Handlebars, or whatever.
-
-`Log panel (in black)`: Besides having a diagnostic log per instance, there’s also a global on-screen log to check what is going on regarding global events, polyfill loading, or any errors we may get.
+- `Instance 1: basic SSR` The first instance of our custom element is entirely server-side rendered (*SSR*). It will initially say “Hello, world” yet if it is successfully upgraded, it will say “Hello, Upgraded world!”. Once upgraded, we’re not interacting with the API at all.
+- `Instance 2: SSR + change attribute` The second instance is also *SSR*, yet this time after upgrading it, we’re going to get a handle to it in JS and then change the name attribute, to see if it reflects in the DOM and on screen.
+- `Instance 3: SSR nested` Also *SSR*, yet this one is *nested*. So it’s a hello-world inside a hello-world, to test what that means for the scope.
+- `Instance 4: dynamic insert` This instance of the custom element is *dynamically inserted* into the DOM. Using just a string literal for the markup, but you could also have used Templates, Handlebars, or whatever. (See line ~248 in `src/js/main.js`)
+- `Log panel (in black)`: Besides having a diagnostic log per instance, there’s also a global on-screen log to check what is going on regarding global events, polyfill loading, or any errors we may get.
 
 ## Browser support
-- Chrome (56): 100%, native support
-- Firefox (51): 100%, using polyfill
-- Edge (14): 100%, using polyfill
-- Opera (42): 100%, native support
-- Chrome for Android (55): 100%, native support
-- Mobile Safari 10 (iOS10.2): 100%, using polyfill (tested both on iPhone and iPad)
-- Safari 10 on Mac: 100%, using polyfill
+- `Chrome (56)`: 100%, native support
+- `Firefox (51)`: 100%, using polyfill
+- `Edge (14)`: 100%, using polyfill
+- `Opera (42)`: 100%, native support
+- `Chrome for Android (55)`: 100%, native support
+- `Mobile Safari 10 (iOS10.2)`: 100%, using polyfill (tested both on iPhone and iPad)
+- `Safari 10 on Mac`: 100%, using polyfill
 
 Reasonable native support that is soon to be improved (Safari’s latest version will deliver native support and is around the corner, Firefox and Edge are working on it)
 
@@ -44,6 +43,8 @@ Reasonable native support that is soon to be improved (Safari’s latest version
 The `index.html` is hooked up and ready to go.
 
 `open index.html`
+
+Alternatively use the gulp script to do real SSR on a server.
 
 ## Scripts
 
