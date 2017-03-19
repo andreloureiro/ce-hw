@@ -61,9 +61,11 @@ See `gulpfile.js` or `package.json` `"scripts"` entry.
 
 ### Custom Elements v1
 
-The `main.js` uses `custom-elements.min.js` polyfill (see `/js/poly/`) for polyfilling support for Custom Elements if not natively available.
+The `main.js` uses `custom-elements.min.js` polyfill (see `/js/poly/`) for polyfilling support for Custom Elements if not natively available (ie. if `window.customElements` is available).
 
 ```js
+const supportsCustomElementsV1 = 'customElements' in window;
+
 if (!supportsCustomElementsV1) {
   // no native support, load polyfill
   logScreen('Native support not available, loading polyfil...');
