@@ -85,6 +85,59 @@ if (!supportsCustomElementsV1) {
 }
 ```
 
+*Babel transpilation config*
+
+To get transpilation from ES6 to ES5 with Babel, we need to add some babel transform plugins in `.babelrc` (or similar configuration).
+
+```json
+{
+    “presets”: [
+        “es2015”
+    ],
+    “plugins”: [
+        “transform-custom-element-classes”,
+        “transform-es2015-classes”
+    ]
+}
+```
+
+However, legacy browsers like IE10 and IE11 may pose additional problems. The problem is not in the polyfill, it is in the transpilation. It may require additional polyfills (such as es6-shim) or additional Babel plugins. It’s a can of worms...
+
+*Source maps*
+
+To make transpilation bearable, I included source maps as part of the build process.
+
+*Custom Element definition*
+
+You define a **Custom Element (v1)** as [described](https://developers.google.com/web/fundamentals/getting-started/primers/customelements) by creating a `class`  that extends `HTMLElement`
+
+```js
+class HelloWorld extends HTMLElement {
+
+    constructor(element) {
+
+      // Always call super first in constructor
+      super();
+      // ...
+    }
+
+    // ... more methods
+}
+```
+
+*Dynamic custom element instantiation*
+
+You can then instantiate it by using `new` which calls the class constructor to create the element `Object`. You can then operate on it and eventually insert it into the DOM, here by using `appendChild`.
+
+```js
+let domStr = 
+` <p>Hello, <span class=”name”>World!</span></p> <form class=”frm” action=”” method=”post” accept-charset=”UTF-8"> <input type=”text” class=”nameField” value=”” /> <input type=”submit” value=”submit” /> </form> <ul class=”log”> <li>DOM init</li> </ul> `; 
+let hw2 = new HelloWorld();
+hw2.innerHTML = domStr; 
+hw2.setAttribute(‘id’,’hw2'); 
+hw2.setAttribute(‘name’,’DOM created world!’); document.querySelector(“#instances”).appendChild(hw2); 
+```
+
 ### Upgrading older browsers
 
 Additionally, `/js/poly/` contains `core.min.js`, the [standard JS library](https://github.com/zloirock/core-js) which:
