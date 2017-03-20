@@ -10,14 +10,14 @@ The demo uses a custom element called `<hello-world>`
 
 ![hello world](https://github.com/kristianmandrup/ce-hw/raw/master/images/screenshot1.png "<hello-world> screenshot")
 
-It will have a greeting message that says “Hello <default value>”. Yet you can talk to the API to change the name property, which is then automatically updated in the DOM and on-screen. In addition, you can use the form as an additional way to change the name property. These two simple features test important features of component-based development: DOM synchronization and component-level event handlers.
+It will have a greeting message that says "Hello <default value>”. Yet you can talk to the API to change the name property, which is then automatically updated in the DOM and on-screen. In addition, you can use the form as an additional way to change the name property. These two simple features test important features of component-based development: DOM synchronization and component-level event handlers.
 
 The custom element also has a log panel. We’re outputting diagnostic info on what is happening in the life cycle so that we can easily check what is going on across devices, which may not always have a developer console.
 
 ### Instances
 
 The demo should contain 5 elements on screen:
-- `Instance 1: basic SSR` The first instance of our custom element is entirely server-side rendered (*SSR*). It will initially say “Hello, world” yet if it is successfully upgraded, it will say “Hello, Upgraded world!”. Once upgraded, we’re not interacting with the API at all.
+- `Instance 1: basic SSR` The first instance of our custom element is entirely server-side rendered (*SSR*). It will initially say "Hello, world” yet if it is successfully upgraded, it will say "Hello, Upgraded world!”. Once upgraded, we’re not interacting with the API at all.
 - `Instance 2: SSR + change attribute` The second instance is also *SSR*, yet this time after upgrading it, we’re going to get a handle to it in JS and then change the name attribute, to see if it reflects in the DOM and on screen.
 - `Instance 3: SSR nested` Also *SSR*, yet this one is *nested*. So it’s a hello-world inside a hello-world, to test what that means for the scope.
 - `Instance 4: dynamic insert` This instance of the custom element is *dynamically inserted* into the DOM. Using just a string literal for the markup, but you could also have used Templates, Handlebars, or whatever. (See line ~248 in `src/js/main.js`)
@@ -91,12 +91,12 @@ To get transpilation from ES6 to ES5 with Babel, we need to add some babel trans
 
 ```json
 {
-    “presets”: [
-        “es2015”
+    "presets": [
+        "es2015”
     ],
-    “plugins”: [
-        “transform-custom-element-classes”,
-        “transform-es2015-classes”
+    "plugins”: [
+        "transform-custom-element-classes”,
+        "transform-es2015-classes”
     ]
 }
 ```
@@ -130,12 +130,11 @@ class HelloWorld extends HTMLElement {
 You can then instantiate it by using `new` which calls the class constructor to create the element `Object`. You can then operate on it and eventually insert it into the DOM, here by using `appendChild`.
 
 ```js
-let domStr = 
-` <p>Hello, <span class=”name”>World!</span></p> <form class=”frm” action=”” method=”post” accept-charset=”UTF-8"> <input type=”text” class=”nameField” value=”” /> <input type=”submit” value=”submit” /> </form> <ul class=”log”> <li>DOM init</li> </ul> `; 
+let domStr = ` <p>Hello, <span class=”name”>World!</span></p> <form class=”frm” action=”” method=”post” accept-charset=”UTF-8"> <input type=”text” class=”nameField” value=”” /> <input type=”submit” value=”submit” /> </form> <ul class=”log”> <li>DOM init</li> </ul> `; 
 let hw2 = new HelloWorld();
 hw2.innerHTML = domStr; 
 hw2.setAttribute(‘id’,’hw2'); 
-hw2.setAttribute(‘name’,’DOM created world!’); document.querySelector(“#instances”).appendChild(hw2); 
+hw2.setAttribute(‘name’,’DOM created world!’); document.querySelector("#instances”).appendChild(hw2); 
 ```
 
 ### Upgrading older browsers
