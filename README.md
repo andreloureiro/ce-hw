@@ -130,11 +130,19 @@ class HelloWorld extends HTMLElement {
 You can then instantiate it by using `new` which calls the class constructor to create the element `Object`. You can then operate on it and eventually insert it into the DOM, here by using `appendChild`.
 
 ```js
-let domStr = ` <p>Hello, <span class=”name”>World!</span></p> <form class=”frm” action=”” method=”post” accept-charset=”UTF-8"> <input type=”text” class=”nameField” value=”” /> <input type=”submit” value=”submit” /> </form> <ul class=”log”> <li>DOM init</li> </ul> `; 
+let domStr = `
+  <p>Hello, <span class="name">World!</span></p>
+  <form class="frm" action="" method="post" accept-charset="UTF-8">
+    <input type="text" class="nameField" value="" />
+    <input type="submit" value="submit" />
+  </form>
+  <ul class="log">
+    <li>DOM init</li>
+  </ul>`;
 let hw2 = new HelloWorld();
-hw2.innerHTML = domStr; 
-hw2.setAttribute(‘id’,’hw2'); 
-hw2.setAttribute(‘name’,’DOM created world!’); document.querySelector("#instances”).appendChild(hw2); 
+hw2.innerHTML = domStr;
+hw2.setAttribute('id','hw2');
+hw2.setAttribute('name','DOM created world!'); document.querySelector('#instances').appendChild(hw2);
 ```
 
 ### Upgrading older browsers
