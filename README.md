@@ -51,7 +51,7 @@ Alternatively use the gulp script to do real SSR on a server.
 See `gulpfile.js` or `package.json` `"scripts"` entry.
 
 - `npm run watch` (or `gulp watch`)
-- `npm run scripts` (or `gulp scripts`)
+- `npm start` (or `gulp scripts`)
 
 `scripts` is used to compile `/src/js` files to `/js` and enable live reload on change.
 
