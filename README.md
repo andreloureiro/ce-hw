@@ -89,10 +89,10 @@ if (!supportsCustomElementsV1) {
 
 To get transpilation from ES6 to ES5 with Babel, we need to add some babel transform plugins in `.babelrc` (or similar configuration).
 
-```json
+```js
 {
     "presets": [
-        "es2015”
+        "es2015"
     ],
     "plugins": [
         "transform-custom-element-classes",
