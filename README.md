@@ -94,9 +94,9 @@ To get transpilation from ES6 to ES5 with Babel, we need to add some babel trans
     "presets": [
         "es2015”
     ],
-    "plugins”: [
-        "transform-custom-element-classes”,
-        "transform-es2015-classes”
+    "plugins": [
+        "transform-custom-element-classes",
+        "transform-es2015-classes"
     ]
 }
 ```
