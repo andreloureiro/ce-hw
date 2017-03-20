@@ -139,10 +139,14 @@ let domStr = `
   <ul class="log">
     <li>DOM init</li>
   </ul>`;
+
 let hw2 = new HelloWorld();
 hw2.innerHTML = domStr;
-hw2.setAttribute('id','hw2');
-hw2.setAttribute('name','DOM created world!'); document.querySelector('#instances').appendChild(hw2);
+hw2.setAttribute('id','hw3');
+hw2.setAttribute('name','DOM created world!');
+document.querySelector("#instances").appendChild(hw2);
+// change a property after DOM creation to see if it reflects.
+hw2.name = "DOM created world (JS)!";
 ```
 
 ### Upgrading older browsers
